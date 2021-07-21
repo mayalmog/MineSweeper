@@ -1,0 +1,60 @@
+body {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+table {
+    margin: auto;
+    margin-top: 40px;
+}
+
+td {
+    height: 50px;
+    width: 50px;
+    border-radius: 15%;
+    background-color: rgb(196, 195, 195);
+}
+
+.cell-not-shown {
+    background-color: grey;
+    transition: 0.2s;
+}
+
+td .cell-not-shown :hover {
+    color: rgb(196, 195, 195);
+}
+
+.data-container {
+    padding-top: 10px;
+    height: 100px;
+}
+
+.stopwatch {
+    color: black;
+    font-size: 50px;
+    float: left;
+    width: 25%;
+}
+
+.mines-remained {
+    color: black;
+    font-size: 50px;
+    float: left;
+    width: 25%;
+    margin-left: 200px;
+}
+
+.game-state-indicator {
+    color: black;
+    font-size: 50px;
+    float: left;
+    width: 25%;
+}
+
+.blown-mine {
+    background-color: rgb(216, 57, 57);
+}
+
+/* .btn {
+    padding: 10px 30px;
+} */
