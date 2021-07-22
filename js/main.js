@@ -39,7 +39,7 @@ function initGame() {
     //This is called when page loads
     //zero gGame:
     gGame = {
-        isOn: false,
+        isOn: true,
         shownCount: 0,
         markedCount: 0,
         secsPassed: 0,
@@ -188,53 +188,59 @@ function renderBoard(board, selector) {
 }
 
 function cellClicked(i, j) {
-    //Called when a cell (td) is clicked
-    var clickedCell = gBoard[i][j];
-    console.log(clickedCell);
-    //start timer when first cell is clicked (if no cell has been flagged yet)
-    if (!gTimer && gGame.shownCount === 0) {
-        placeMinesRandom(i, j);
-        setMinesNegsCount(gBoard);
-        // renderBoard(gBoard, '.board-container');
-        startTimer();
-        gTimer = true;
-    }
-
-    //does not enable opening a flagged cell:
-    if (clickedCell.isMarked) {
-        return;
-    }
-    //if the cell has not been clicked yet:
-    if (!clickedCell.isShown && !clickedCell.isMine) {
-        clickedCell.isShown = true;
-        gGame.shownCount++;
-        if (clickedCell.minesAroundCount === 0) {
-            expandShown(i, j);
+    if (gGame.isOn) {
+        //Called when a cell (td) is clicked
+        var clickedCell = gBoard[i][j];
+        console.log(clickedCell);
+        //start timer when first cell is clicked (if no cell has been flagged yet)
+        if (!gTimer && gGame.shownCount === 0) {
+            placeMinesRandom(i, j);
+            setMinesNegsCount(gBoard);
+            // renderBoard(gBoard, '.board-container');
+            startTimer();
+            gTimer = true;
         }
-        renderBoard(gBoard, '.board-container');
-        checkGameOver(clickedCell);
-    }
-    //if the cell is a mine, activate checkGameOver
-    if (clickedCell.isMine) {
-        //reveal all mines
-        checkGameOver(clickedCell);
+
+        //does not enable opening a flagged cell:
+        if (clickedCell.isMarked) {
+            return;
+        }
+        //if the cell has not been clicked yet:
+        if (!clickedCell.isShown && !clickedCell.isMine) {
+            clickedCell.isShown = true;
+            gGame.shownCount++;
+            if (clickedCell.minesAroundCount === 0) {
+                expandShown(i, j);
+            }
+            renderBoard(gBoard, '.board-container');
+            checkGameOver(clickedCell);
+        }
+        //if the cell is a mine, activate checkGameOver
+        if (clickedCell.isMine) {
+            //reveal all mines
+            checkGameOver(clickedCell);
+
+        }
+
+
+        console.log('shownCount:' + gGame.shownCount);
 
     }
-
-
-    console.log('shownCount:' + gGame.shownCount);
 
 }
 
 function cellRightClicked(ev, i, j) {
-    if (ev.button === 2) {
-        if (!gTimer) {
-            startTimer();
-            gTimer = true;
+    if (gGame.isOn) {
+        if (ev.button === 2) {
+            if (!gTimer) {
+                startTimer();
+                gTimer = true;
+            }
+            var elCell = gBoard[i][j];
+            cellMarked(elCell);
         }
-        var elCell = gBoard[i][j];
-        cellMarked(elCell);
     }
+
 }
 
 function cellMarked(elCell) {
