@@ -1,18 +1,28 @@
 body {
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    background: url(/img/bcg-pirates7.jpg) 50% 0 no-repeat fixed;
+    background-size: cover;
 }
 
 table {
     margin: auto;
-    margin-top: 40px;
 }
 
 td {
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
     border-radius: 15%;
     background-color: rgb(196, 195, 195);
+}
+
+.title-container {
+    /* font-family: 'Modak', cursive; */
+    font-family: 'Erica One', cursive;
+    font-size: 80px;
+    color: rgb(14, 61, 94);
+    text-shadow: 2px 2px #C4C3C3;
 }
 
 .cell-not-shown {
@@ -25,8 +35,10 @@ td .cell-not-shown :hover {
 }
 
 .data-container {
-    padding-top: 10px;
+    font-family: 'Erica One', cursive;
+    /* padding-top: 5px; */
     height: 100px;
+    text-shadow: -5px 0 white, 0 5px white, 5px 0 white, 0 -5px white;
 }
 
 .stopwatch {
@@ -44,17 +56,79 @@ td .cell-not-shown :hover {
     margin-left: 200px;
 }
 
+.hearts-remained {
+    font-size: 40px;
+    float: left;
+    width: 25%;
+    margin-left: 200px;
+}
+
 .game-state-indicator {
     color: black;
     font-size: 50px;
     float: left;
     width: 25%;
+    text-align: center;
+}
+
+.game-state-indicator img {
+    height: 90px;
 }
 
 .blown-mine {
     background-color: rgb(216, 57, 57);
 }
 
-/* .btn {
-    padding: 10px 30px;
-} */
+.game-levels {
+    text-align: center;
+    display: block;
+}
+
+.game-button {
+    position: relative;
+    top: 0;
+    cursor: pointer;
+    text-decoration: none !important;
+    outline: none !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    line-height: 1.5em;
+    letter-spacing: .1em;
+    text-shadow: 2px 2px 1px #0066a2, -2px 2px 1px #0066a2, 2px -2px 1px #0066a2, -2px -2px 1px #0066a2, 0px 2px 1px #0066a2, 0px -2px 1px #0066a2, 0px 4px 1px #004a87, 2px 4px 1px #004a87, -2px 4px 1px #004a87;
+    border: none;
+    margin: 0px 15px 0px;
+    background: repeating-linear-gradient( 45deg, #3ebbf7, #3ebbf7 5px, #45b1f4 5px, #45b1f4 10px);
+    border-bottom: 3px solid rgba(16, 91, 146, 0.5);
+    border-top: 3px solid rgba(255, 255, 255, .3);
+    color: #fff !important;
+    border-radius: 8px;
+    padding: 8px 15px 10px;
+    box-shadow: 0 6px 0 #266b91, 0 8px 1px 1px rgba(0, 0, 0, .3), 0 10px 0 5px #12517d, 0 12px 0 5px #1a6b9a, 0 15px 0 5px #0c405e, 0 15px 1px 6px rgba(0, 0, 0, .3);
+}
+
+.game-button:hover {
+    top: 2px;
+    box-shadow: 0 4px 0 #266b91, 0 6px 1px 1px rgba(0, 0, 0, .3), 0 8px 0 5px #12517d, 0 10px 0 5px #1a6b9a, 0 13px 0 5px #0c405e, 0 13px 1px 6px rgba(0, 0, 0, .3);
+}
+
+.game-button::before {
+    content: '';
+    height: 10%;
+    position: absolute;
+    width: 40%;
+    background: #fff;
+    right: 13%;
+    top: -3%;
+    border-radius: 99px;
+}
+
+.game-button::after {
+    content: '';
+    height: 10%;
+    position: absolute;
+    width: 5%;
+    background: #fff;
+    right: 5%;
+    top: -3%;
+    border-radius: 99px;
+}

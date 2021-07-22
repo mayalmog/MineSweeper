@@ -6,25 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minesweeper</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Erica+One&family=Modak&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body onload="initGame()">
 
     <div class="title-container">
-        <img src="./img/title.png" alt="Game-Title">
+        MineSweeper
     </div>
     <div class="data-container">
         <div class="mines-remained">
 
         </div>
         <div class="game-state-indicator">
-
+            <img src="./img/pirate-emoji.png" alt="pirate-emoji">
         </div>
         <div class="stopwatch">
 
         </div>
     </div>
+
+    <div class="data-container">
+        <div class="hearts-remained">
+
+        </div>
+        <div class="game-levels">
+            <div>
+                <button class="game-button" onclick="changeGameLevelBeginner()">Beginner</button>
+                <button class="game-button" onclick="changeGameLevelMedium()">Medium</button>
+                <button class="game-button" onclick="changeGameLevelExpert()">Expert</button>
+            </div>
+
+        </div>
+        <div class="best-score">
+
+        </div>
+    </div>
+
 
 
     <div class="board-container" oncontextmenu="return false">

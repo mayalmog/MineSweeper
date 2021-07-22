@@ -165,6 +165,22 @@ function countNeighbors(cellI, cellJ, mat) {
     gBoard[cellI][cellJ].minesAroundCount = neighborMinesCount;
 }
 
+function getNeiboringCells(i, j) {//i,j are coords of center cell
+    var nbrCells = [];
+    for (var nbrsI = i - 1; nbrsI <= i + 1; nbrsI++) {
+        if (nbrsI < 0 || nbrsI >= gBoard.length) continue;
+        for (var nbrsJ = j - 1; nbrsJ <= j + 1; nbrsJ++) {
+            if (i === nbrsI && j === nbrsJ) continue;
+            if (nbrsJ < 0 || nbrsJ >= gBoard[i].length) continue;
+            var currCell = gBoard[nbrsI][nbrsJ];
+            nbrCells.push(currCell);
+        }
+    }
+    return nbrCells;
+}
+
+
+
 //timer, format: 00:000, alerts finish time;
 // var gTime1 = Date.now();
 // var gMyTime;
@@ -175,7 +191,7 @@ function startTimer() {
 function timeCycle() {
     var time2 = Date.now();
     var msTimeDiff = time2 - gTime1;
-    var timeDiffStr = new Date(msTimeDiff).toISOString().slice(17, -1);
+    var timeDiffStr = new Date(msTimeDiff).toISOString().slice(14, -5);
     document.querySelector('.stopwatch').innerHTML = timeDiffStr;
 }
 function stopTimer() {
