@@ -2,7 +2,7 @@ body {
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
-    background: url('../img/bcg-pirates7.jpg') 50% 0 no-repeat fixed;
+    background: url(../img/bcg-pirates7.jpg) 50% 0 no-repeat fixed;
     background-size: cover;
 }
 
