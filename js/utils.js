@@ -1,5 +1,6 @@
 'use strict'
 
+var gTimeDiffStr = '00:00';
 ////////// Utility Functions //////////
 
 function createEmptyMat(ROWS, COLS) {//model
@@ -179,8 +180,6 @@ function getNeiboringCells(i, j) {//i,j are coords of center cell
     return nbrCells;
 }
 
-
-
 //timer, format: 00:000, alerts finish time;
 // var gTime1 = Date.now();
 // var gMyTime;
@@ -191,8 +190,8 @@ function startTimer() {
 function timeCycle() {
     var time2 = Date.now();
     var msTimeDiff = time2 - gTime1;
-    var timeDiffStr = new Date(msTimeDiff).toISOString().slice(14, -5);
-    document.querySelector('.stopwatch').innerHTML = timeDiffStr;
+    gTimeDiffStr = new Date(msTimeDiff).toISOString().slice(14, -5);
+    document.querySelector('.stopwatch').innerHTML = gTimeDiffStr;
 }
 function stopTimer() {
     clearInterval(gMyTime);

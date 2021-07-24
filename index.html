@@ -17,21 +17,27 @@
     <div class="title-container">
         MineSweeper
     </div>
-    <div class="data-container">
+    <div class="data-container-1">
+        <div class="hearts-remained"> </div>
         <div class="mines-remained">
 
         </div>
         <div class="game-state-indicator">
-            <img src="./img/pirate-emoji.png" alt="pirate-emoji">
+            <img onclick="initGame()" src="./img/pirate-emoji.png" alt="pirate-emoji">
         </div>
         <div class="stopwatch">
 
         </div>
+        <div class="best-score">
+
+        </div>
     </div>
 
-    <div class="data-container">
-        <div class="hearts-remained">
+    <div class="data-container-2">
+        <div class="hints-remained"> </div>
 
+        <div class="safe-click">
+            <button class="safe-click-btn game-button" onclick="safeClick()">3 Safe Clicks</button>
         </div>
         <div class="game-levels">
             <div>
@@ -39,11 +45,8 @@
                 <button class="game-button" onclick="changeGameLevelMedium()">Medium</button>
                 <button class="game-button" onclick="changeGameLevelExpert()">Expert</button>
             </div>
-
         </div>
-        <div class="best-score">
 
-        </div>
     </div>
 
 
