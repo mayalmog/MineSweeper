@@ -5,60 +5,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minesweeper</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Erica+One&family=Modak&display=swap" rel="stylesheet">
+    <title>Bookshop</title>
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
-<body onload="initGame()">
-
-    <div class="title-container">
-        MineSweeper
-    </div>
-    <div class="data-container-1">
-        <div class="hearts-remained"> </div>
-        <div class="mines-remained">
-
-        </div>
-        <div class="game-state-indicator">
-            <img onclick="initGame()" src="./img/pirate-emoji.png" alt="pirate-emoji">
-        </div>
-        <div class="stopwatch">
-
-        </div>
-        <div class="best-score">
-
-        </div>
+<body onload="onInit()">
+    <div class="page-title">
+        <h1>Welcome to the Open Bookshop!</h1>
     </div>
 
-    <div class="data-container-2">
-        <div class="hints-remained"> </div>
+    <table>
+        <th>Id</th>
+        <th class="th-title" onclick=" onSetSort('title')">Title <span>↕</span></th>
+        <th>Cover</th>
+        <th class="th-price" onclick=" onSetSort('price')">Price <span>↕</span></th>
+        <th colspan=" 3">Actions</th>
+        <th>Rating</th>
+        <tbody class="books-container">
 
-        <div class="safe-click">
-            <button class="safe-click-btn game-button" onclick="safeClick()">3 Safe Clicks</button>
-        </div>
-        <div class="game-levels">
-            <div>
-                <button class="game-button" onclick="changeGameLevelBeginner()">Beginner</button>
-                <button class="game-button" onclick="changeGameLevelMedium()">Medium</button>
-                <button class="game-button" onclick="changeGameLevelExpert()">Expert</button>
-            </div>
-        </div>
+        </tbody>
+
+    </table>
+
+    <button class="add-book-btn btn" onclick="onAddBook()">Add Book</button>
+    <button class="add-book-btn btn" onclick="onBackPage()">Back</button>
+    <div class="page-numbers">
+
+    </div>
+    <button class="add-book-btn btn" onclick="onNextPage()">Next</button>
+
+    <div class="modal" hidden>
 
     </div>
 
+    <div class="add-new-book" hidden>
+        <h1>Add a new book to the shop</h1>
+        <table>
+            <th>Book Title</th>
+            <th>Price(₪)</th>
+            <th>Cover Image Url (Optional)</th>
+            <tbody>
+                <tr>
+                    <td>
+                        <input name="newAddBookTitle" type="text">
+                    </td>
+                    <td>
+                        <input name="newAddBookPrice" type="number">
+                    </td>
+                    <td>
+                        <input name="newAddBookImg" type="text">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
 
-    <div class="board-container" oncontextmenu="return false">
+        <button class="modal-btn btn" onclick="onAddNewBook()">Confirm</button>
+        <button class="modal-btn btn" onclick="onCloseNewBookModal()">Close</button>
 
     </div>
 
-
-    <script src="./js/utils.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="./js/storage-service.js"></script>
+    <script src="./js/book-service.js"></script>
+    <script src="./js/book-controller.js"></script>
 </body>
-
 
 </html>
